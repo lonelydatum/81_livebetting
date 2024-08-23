@@ -5,6 +5,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _proline = require("./proline");
 
 var banner = document.getElementById('banner');
@@ -21,7 +23,6 @@ var READ = {
 	t1: 1.3,
 	t2: 1.7,
 	t3: 2.1
-
 };
 
 function init() {
@@ -34,29 +35,30 @@ function init() {
 	return tl;
 }
 
-var data_ = {};
-var ease = "power2.out";
-
 var colors = ["d4f035", "c4ed37", "b3ea38", "a3e73a", "93e43b", "82e13d", "72de3e", "62da40", "52d741", "41d443", "31d144", "21ce46", "10cb47", "00c849"];
 
-var TOTAL = 12;
+function stag(vh) {
+	return _extends({ duration: .3, opacity: 0, stagger: .1 }, vh);
+}
 
 function start(barOptions) {
+	var vh = arguments.length <= 1 || arguments[1] === undefined ? { x: -size.w } : arguments[1];
 
 	var tl = init();
-	animate_bars(barOptions);
-	TweenLite.to(".hero img", { duration: 3, scale: 1.08, ease: "back.out" });
 
+	var fun = barOptions.HEIGHT > barOptions.WIDTH ? animate_bars_horizontal : animate_bars_vertical;
+	fun(barOptions);
+	TweenLite.to(".hero img", { duration: 3, scale: 1.08, ease: "back.out" });
 	// return
 
-	tl.from('.t1', { duration: .3, x: -size.w, opacity: 0, stagger: .1 }, "+=.5");
-	tl.to(".t1", { duration: .3, x: 50, opacity: 0 }, "+=" + READ.t1);
+	tl.from('.t1', stag(vh), "+=.5");
+	tl.to(".t1", { duration: .3, opacity: 0 }, "+=" + READ.t1);
 
-	tl.from('.t2', { duration: .3, x: -size.w, opacity: 0, stagger: .1 });
-	tl.to(".frame1", { duration: .3, x: 50, opacity: 0 }, "+=" + READ.t2);
+	tl.from('.t2', stag(vh));
+	tl.to(".frame1", { duration: .3, opacity: 0 }, "+=" + READ.t2);
 	tl.to(".frame2", { duration: .3, opacity: 1 }, "t2");
 
-	tl.from('.t3', { duration: .3, x: -size.w, opacity: 0, stagger: .12 });
+	tl.from('.t3', stag(vh));
 
 	tl.to(".t3", { duration: .3, opacity: 0 }, "+=" + READ.t3);
 
@@ -66,7 +68,7 @@ function start(barOptions) {
 	tl.add((0, _proline.olg)());
 }
 
-function animate_bars(barOptions) {
+function animate_bars_horizontal(barOptions) {
 	var TOTAL = barOptions.TOTAL;
 	var WIDTH = barOptions.WIDTH;
 	var HEIGHT = barOptions.HEIGHT;
@@ -76,7 +78,41 @@ function animate_bars(barOptions) {
 
 	for (var i = 0; i < TOTAL; i++) {
 		var barItem = document.createElement("div");
+		var height = HEIGHT - i * GAP;
 
+		TweenLite.set(barItem, {
+			transformOrigin: "0% 100%",
+			className: "bar bar_" + i,
+			width: WIDTH,
+			height: height,
+
+			scale: 1,
+			y: HEIGHT - height,
+			backgroundColor: "#" + colors[i]
+		});
+
+		bars.appendChild(barItem);
+	}
+
+	var tl = new TimelineMax();
+
+	tl.from('.bar', {
+		scaleY: 0,
+		stagger: 0.06
+	});
+	return tl;
+}
+
+function animate_bars_vertical(barOptions) {
+	var TOTAL = barOptions.TOTAL;
+	var WIDTH = barOptions.WIDTH;
+	var HEIGHT = barOptions.HEIGHT;
+	var GAP = barOptions.GAP;
+
+	var bars = document.getElementById("bars");
+
+	for (var i = 0; i < TOTAL; i++) {
+		var barItem = document.createElement("div");
 		TweenLite.set(barItem, {
 			className: "bar bar_" + i,
 			height: HEIGHT,
@@ -132,12 +168,12 @@ var _commonJsCommonJs = require('../../_common/js/common.js');
 
 var barOptions = {
 	TOTAL: 12,
-	WIDTH: 276,
-	HEIGHT: 4,
-	GAP: 20
+	WIDTH: 40,
+	HEIGHT: 300,
+	GAP: 30
 };
 
-(0, _commonJsCommonJs.start)(barOptions);
+(0, _commonJsCommonJs.start)(barOptions, { y: _commonJsCommonJs.size.w });
 
 module.exports = {};
 

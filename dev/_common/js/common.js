@@ -6,19 +6,13 @@ gsap.defaults({
 	ease: "power3.out"
 });
 
-
-
-
 const {w, h} = size
-
 
 const READ = {
 	t1: 1.3,
 	t2: 1.7,
 	t3: 2.1,
-
 }
-
 
 function init(){	
 	const tl = new TimelineMax({onComplete:()=>{
@@ -29,10 +23,6 @@ function init(){
 	tl.set(".frame1", {opacity:1})
 	return tl
 }
-
-
-let data_ = {}
-const ease = "power2.out"
 
 const colors = [
 	"d4f035", 
@@ -51,26 +41,31 @@ const colors = [
 	"00c849"
 	]
 
-const TOTAL = 12
 
-function start(barOptions){
+function stag(vh){
+	return { duration:.3, opacity:0, stagger: .1, ...vh }
+}
+
+function start(barOptions, vh={x:-size.w}){
 	
 	
 	const tl = init()
-	animate_bars(barOptions)
+	
+	const fun = barOptions.HEIGHT > barOptions.WIDTH ? animate_bars_horizontal : animate_bars_vertical
+	fun(barOptions)
 	TweenLite.to(".hero img", {duration:3, scale:1.08, ease:"back.out"})
-
 	// return
 	
-	tl.from('.t1', { duration:.3, x:-size.w, opacity:0, stagger: .1 }, "+=.5");	
-	tl.to(".t1", {duration:.3, x:50, opacity:0}, `+=${READ.t1}`)
+	
+	tl.from('.t1', stag(vh), "+=.5");	
+	tl.to(".t1", {duration:.3, opacity:0}, `+=${READ.t1}`)
 	
 
-	tl.from('.t2', { duration:.3, x:-size.w, opacity:0, stagger: .1 });		
-	tl.to(".frame1", {duration:.3, x:50, opacity:0}, `+=${READ.t2}`)
+	tl.from('.t2', stag(vh));		
+	tl.to(".frame1", {duration:.3,  opacity:0}, `+=${READ.t2}`)
 	tl.to(".frame2", {duration:.3, opacity:1}, "t2")
 
-	tl.from('.t3', { duration:.3, x:-size.w, opacity:0, stagger: .12 });
+	tl.from('.t3', stag(vh));
 	
 	tl.to(".t3", {duration:.3, opacity:0}, `+=${READ.t3}`)
 
@@ -83,27 +78,59 @@ function start(barOptions){
 }
 
 
-function animate_bars(barOptions){
-
-
-
-const {
-	TOTAL,
-	WIDTH,
-	HEIGHT,
-	GAP,
-} = barOptions  
-
+function animate_bars_horizontal(barOptions){
+	const {
+		TOTAL,
+		WIDTH,
+		HEIGHT,
+		GAP,
+	} = barOptions  
 
 	const bars = document.getElementById("bars")
-	
-	
 
 	
 	for(let i=0;i<TOTAL;i++){
 		const barItem = document.createElement("div")
+		const height = HEIGHT-(i * GAP)
 		
+		TweenLite.set(barItem, {
+			transformOrigin:"0% 100%",
+			className: `bar bar_${i}`,
+			width:WIDTH, 
+			height,  
+			
+			scale: 1, 
+			y: HEIGHT-height,
+			backgroundColor:`#${colors[i]}`
+		})
 		
+		bars.appendChild(barItem)
+	}
+
+	const tl = new TimelineMax()
+
+	tl.from('.bar', {
+		scaleY: 0,
+		stagger: 0.06
+	});
+	return tl
+
+
+
+}
+
+function animate_bars_vertical(barOptions){
+	const {
+		TOTAL,
+		WIDTH,
+		HEIGHT,
+		GAP,
+	} = barOptions  
+
+	const bars = document.getElementById("bars")
+	
+	for(let i=0;i<TOTAL;i++){
+		const barItem = document.createElement("div")
 		TweenLite.set(barItem, {
 			className: `bar bar_${i}`,
 			height:HEIGHT, 
