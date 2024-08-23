@@ -284,4 +284,18 @@ canvas, .text, .frame, .outline, img {
   z-index: 1;
 }
 
+.hero {
+  -webkit-transform: translate(12px, 82px);
+  -ms-transform: translate(12px, 82px);
+  transform: translate(12px, 82px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+  width: 278px;
+  height: 104px;
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=main.css.map */

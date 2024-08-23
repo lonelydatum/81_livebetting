@@ -45,6 +45,8 @@ function start(data) {
 
 	var tl = init();
 	animate_bars();
+	TweenLite.to(".hero img", { duration: 2, scale: 1.08 });
+	// return
 
 	tl.from(".t1a", { duration: .3, x: -size.w }, "+=.5");
 	tl.from(".t1b", { duration: .3, x: -size.w });
@@ -66,7 +68,7 @@ function start(data) {
 	tl.to(".t3", { duration: .3, opacity: 0 }, "t3");
 
 	tl.from(".t4", { duration: .3, opacity: 0 });
-	tl.from(".cta", { duration: .3, opacity: 0 });
+	tl.from([".cta", ".legalBtn"], { duration: .3, opacity: 0 });
 
 	tl.add((0, _proline.olg)());
 }
