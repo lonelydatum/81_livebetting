@@ -305,6 +305,7 @@ canvas, .text, .frame, .outline, img {
   -webkit-transform: scale(0.5) translate(-134px, -55px);
   -ms-transform: scale(0.5) translate(-134px, -55px);
   transform: scale(0.5) translate(-134px, -55px);
+  opacity: .5;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -57,7 +57,7 @@ function start(barOptions, vh={x:-size.w}){
 	// return
 	
 	
-	tl.from('.t1', stag(vh), "+=.5");	
+	tl.from('.t1', stag(vh), "+=.4");	
 	tl.to(".t1", {duration:.3, opacity:0}, `+=${READ.t1}`)
 	
 

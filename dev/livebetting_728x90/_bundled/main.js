@@ -51,7 +51,7 @@ function start(barOptions) {
 	TweenLite.from(".hero img", { duration: 3, scale: "-=.1" });
 	// return
 
-	tl.from('.t1', stag(vh), "+=.5");
+	tl.from('.t1', stag(vh), "+=.4");
 	tl.to(".t1", { duration: .3, opacity: 0 }, "+=" + READ.t1);
 
 	tl.from('.t2', stag(vh));
