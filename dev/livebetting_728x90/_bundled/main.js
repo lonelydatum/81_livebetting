@@ -48,7 +48,7 @@ function start(barOptions) {
 
 	var fun = barOptions.HEIGHT > barOptions.WIDTH ? animate_bars_horizontal : animate_bars_vertical;
 	fun(barOptions);
-	TweenLite.from(".hero img", { duration: 3, scale: "-=.1", ease: "back.out" });
+	TweenLite.from(".hero img", { duration: 3, scale: "-=.1" });
 	// return
 
 	tl.from('.t1', stag(vh), "+=.5");
