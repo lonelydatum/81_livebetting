@@ -48,8 +48,11 @@ function start(barOptions) {
 
 	var fun = barOptions.HEIGHT > barOptions.WIDTH ? animate_bars_horizontal : animate_bars_vertical;
 	fun(barOptions);
-	TweenLite.from(".hero img", { duration: 3, scale: "-=.1" });
-	// return
+	if (universalBanner.size === "300x250") {
+		TweenLite.to(".hero img", { duration: 3, scale: .55 });
+	} else {
+		TweenLite.from(".hero img", { duration: 3, scale: "-=.1" });
+	}
 
 	tl.from('.t1', stag(vh), "+=.4");
 	tl.to(".t1", { duration: .3, opacity: 0 }, "+=" + READ.t1);
