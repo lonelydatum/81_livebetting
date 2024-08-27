@@ -9,7 +9,8 @@ const barOptions  ={
 	TOTAL: 12,
 	WIDTH: 276,
 	HEIGHT: 4,
-	GAP: 20
+	GAP: 20,
+	hero: 0.9
 }
 
 

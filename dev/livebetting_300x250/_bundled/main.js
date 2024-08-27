@@ -48,7 +48,7 @@ function start(barOptions) {
 
 	var fun = barOptions.HEIGHT > barOptions.WIDTH ? animate_bars_horizontal : animate_bars_vertical;
 	fun(barOptions);
-	TweenLite.to(".hero img", { duration: 3, scale: 1.08, ease: "back.out" });
+	TweenLite.from(".hero img", { duration: 3, scale: "-=.1", ease: "back.out" });
 	// return
 
 	tl.from('.t1', stag(vh), "+=.5");
@@ -170,7 +170,8 @@ var barOptions = {
 	TOTAL: 12,
 	WIDTH: 276,
 	HEIGHT: 4,
-	GAP: 20
+	GAP: 20,
+	hero: 0.9
 };
 
 (0, _commonJsCommonJs.start)(barOptions);

@@ -297,4 +297,13 @@ canvas, .text, .frame, .outline, img {
   overflow: hidden;
 }
 
+.hero .image {
+  -webkit-transform-origin: 25% 25%;
+  -ms-transform-origin: 25% 25%;
+  transform-origin: 25% 25%;
+  -webkit-transform: scale(0.8) translate(-134px, -100px);
+  -ms-transform: scale(0.8) translate(-134px, -100px);
+  transform: scale(0.8) translate(-134px, -100px);
+}
+
 /*# sourceMappingURL=main.css.map */

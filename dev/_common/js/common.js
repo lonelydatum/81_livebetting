@@ -53,7 +53,7 @@ function start(barOptions, vh={x:-size.w}){
 	
 	const fun = barOptions.HEIGHT > barOptions.WIDTH ? animate_bars_horizontal : animate_bars_vertical
 	fun(barOptions)
-	TweenLite.to(".hero img", {duration:3, scale:1.08, ease:"back.out"})
+	TweenLite.from(".hero img", {duration:3, scale:"-=.1", ease:"back.out"})
 	// return
 	
 	

@@ -46,8 +46,10 @@
 	height: 104px;
 	overflow: hidden;
 	// clip-path: inset(10px 20px 30px 40px);
-	img{
-		// transform: scale(1)
+	.image{
+		transform-origin: 25% 25%;		
+		transform: scale(.5) translate(-134px, -55px);	
+		// opacity: .5;				
 	}
 
 	// opacity: .3
