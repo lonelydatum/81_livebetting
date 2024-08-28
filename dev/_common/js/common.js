@@ -68,7 +68,8 @@ function start(barOptions, vh={x:-size.w}){
 	tl.from('.t2', stag(vh));		
 	const listter = [".frame1"]
 	
-	if(universalBanner.size!="300x250" || universalBanner.size!="160x600" ){
+	if(universalBanner.size!="300x250" && universalBanner.size!="160x600" ){
+		// console.log(universalBanner.size);
 		listter.push(".logos")
 	}
 	console.log(listter);

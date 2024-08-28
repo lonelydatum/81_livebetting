@@ -62,7 +62,8 @@ function start(barOptions) {
 	tl.from('.t2', stag(vh));
 	var listter = [".frame1"];
 
-	if (universalBanner.size != "300x250" || universalBanner.size != "160x600") {
+	if (universalBanner.size != "300x250" && universalBanner.size != "160x600") {
+		// console.log(universalBanner.size);
 		listter.push(".logos");
 	}
 	console.log(listter);
