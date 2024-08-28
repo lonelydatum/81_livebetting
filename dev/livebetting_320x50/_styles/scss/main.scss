@@ -8,14 +8,11 @@
 
 
 
-#olg{
-	// border: 1px solid red;
+#olg{	
 	width: 51px;
 	height: 47px;
-	@include pos(0, 15);
-	// opacity: .5 !important;
+	@include pos(0, 15);	
 }
-
 
 
 
@@ -24,9 +21,12 @@
 	width: 80px;
 	display: none;
 	// opacity: 1 !important;
-
+}
 #legalContent{
-	line-height: 11px;
+	line-height: 14px;
+	font-size: 12px;
+	padding: 2px;
+	
 }
 
 #bars{
@@ -52,11 +52,5 @@
 	@include pos(12, 82);
 	width: 278px;
 	height: 104px;
-	overflow: hidden;
-	// clip-path: inset(10px 20px 30px 40px);
-	img{
-		// transform: scale(1)
-	}
-
-	// opacity: .3
+	overflow: hidden;	
 }

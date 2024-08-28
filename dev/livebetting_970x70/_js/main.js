@@ -13,7 +13,7 @@ const barOptions  ={
 }
 
 
-start(barOptions, {y:size.w})
+start(barOptions, {y:size.h})
 
 
 

@@ -55,17 +55,24 @@ function start(barOptions) {
 	}
 
 	// return
-
+	console.log(stag(vh));
 	tl.from('.t1', stag(vh), "+=.4");
 	tl.to(".t1", { duration: .3, opacity: 0 }, "+=" + READ.t1);
 
 	tl.from('.t2', stag(vh));
-	tl.to(".frame1", { duration: .3, opacity: 0 }, "+=" + READ.t2);
+	var listter = [".frame1"];
+
+	if (universalBanner.size != "300x250" || universalBanner.size != "160x600") {
+		listter.push(".logos");
+	}
+	console.log(listter);
+	tl.to(listter, { duration: .3, opacity: 0 }, "+=" + READ.t2);
+
 	tl.to(".frame2", { duration: .3, opacity: 1 }, "t2");
 
 	tl.from('.t3', stag(vh));
 
-	tl.to(".t3", { duration: .3, opacity: 0 }, "+=" + READ.t3);
+	tl.to([".logos", ".t3"], { duration: .3, opacity: 0 }, "+=" + READ.t3);
 
 	tl.from(".t4", { duration: .3, opacity: 0 });
 	tl.from([".cta", ".legalBtn"], { duration: .3, opacity: 0 });
@@ -173,7 +180,7 @@ var _commonJsCommonJs = require('../../_common/js/common.js');
 
 var barOptions = {
 	TOTAL: 12,
-	WIDTH: 276,
+	WIDTH: 278,
 	HEIGHT: 4,
 	GAP: 20,
 	hero: 0.9

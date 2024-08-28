@@ -259,6 +259,12 @@ canvas, .text, .frame, .outline, img {
   display: none;
 }
 
+#legalContent {
+  line-height: 14px;
+  font-size: 12px;
+  padding: 2px;
+}
+
 #bars {
   -webkit-transform: translate(0px, 0px);
   -ms-transform: translate(0px, 0px);
