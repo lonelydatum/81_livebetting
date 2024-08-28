@@ -59,7 +59,7 @@ function start(barOptions, vh={x:-size.w}){
 		TweenLite.from(".hero img", {duration:3, scale:"-=.1"})
 	}
 	
-	
+	// return
 	
 	tl.from('.t1', stag(vh), "+=.4");	
 	tl.to(".t1", {duration:.3, opacity:0}, `+=${READ.t1}`)

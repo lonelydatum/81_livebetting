@@ -47,8 +47,8 @@
 }
 
 .hero{
-	@include pos(0, 146);
-	width: 300px;
+	@include pos(12, 146);
+	width: 276px;
 	height: 245px;
 	overflow: hidden;	
 	.image{

@@ -259,9 +259,9 @@ canvas, .text, .frame, .outline, img {
 }
 
 #bars {
-  -webkit-transform: translate(10px, 324px);
-  -ms-transform: translate(10px, 324px);
-  transform: translate(10px, 324px);
+  -webkit-transform: translate(10px, 415px);
+  -ms-transform: translate(10px, 415px);
+  transform: translate(10px, 415px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
@@ -283,9 +283,9 @@ canvas, .text, .frame, .outline, img {
 }
 
 .hero {
-  -webkit-transform: translate(10px, 109px);
-  -ms-transform: translate(10px, 109px);
-  transform: translate(10px, 109px);
+  -webkit-transform: translate(10px, 198px);
+  -ms-transform: translate(10px, 198px);
+  transform: translate(10px, 198px);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
