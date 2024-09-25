@@ -73,7 +73,9 @@ function start(barOptions) {
 	tl.to(".frame2", { duration: .3, opacity: 1 }, "t2");
 
 	if (universalBanner.size === "160x600" || universalBanner.size === "300x600") {
+		tl.to([".logos"], { duration: .2, opacity: 0 }, "-=.5");
 		tl.from(".t4", { duration: .3, opacity: 0 });
+
 		tl.from('.t3', stag(vh));
 	} else {
 		tl.from('.t3', stag(vh));
