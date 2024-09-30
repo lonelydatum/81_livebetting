@@ -63,16 +63,16 @@ function start(barOptions) {
 	tl.from('.t2', stag(vh));
 	var listter = [".frame1"];
 
-	if (universalBanner.size != "300x250" && universalBanner.size != "160x600") {
-		// console.log(universalBanner.size);
-		listter.push(".logos");
-	}
+	// if(universalBanner.size!="300x250" && universalBanner.size!="160x600" ){
+	// 	// console.log(universalBanner.size);
+	// 	listter.push(".logos")
+	// }
 
 	tl.to(listter, { duration: .3, opacity: 0 }, "+=" + READ.t2);
 
 	tl.to(".frame2", { duration: .3, opacity: 1 }, "t2");
 
-	if (universalBanner.size === "160x600" || universalBanner.size === "300x600") {
+	if (universalBanner.size === "300x250" || universalBanner.size === "160x600" || universalBanner.size === "300x600") {
 		tl.to([".logos"], { duration: .2, opacity: 0 }, "-=.5");
 		tl.from(".t4", { duration: .3, opacity: 0 });
 
@@ -192,7 +192,7 @@ var barOptions = {
 	HEIGHT: 4,
 	GAP: 20,
 	hero: 0.9,
-	scale: { scale: .8, x: -196, y: -49 }
+	scale: { scale: .7, x: -181, y: -64 }
 
 };
 

@@ -10,7 +10,8 @@ const barOptions  ={
 	HEIGHT: 15,
 	GAP: 10,
 	hero: .9,
-	scale: {scale:.66, x:-69, y:-114} 
+	scale: {scale:1.1, x:-41, y:-35} 
+	
 }
 
 start(barOptions)

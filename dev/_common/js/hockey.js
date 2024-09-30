@@ -69,16 +69,16 @@ function start(barOptions, vh={x:-size.w}){
 	tl.from('.t2', stag(vh));		
 	const listter = [".frame1"]
 	
-	if(universalBanner.size!="300x250" && universalBanner.size!="160x600" ){
-		// console.log(universalBanner.size);
-		listter.push(".logos")
-	}
+	// if(universalBanner.size!="300x250" && universalBanner.size!="160x600" ){
+	// 	// console.log(universalBanner.size);
+	// 	listter.push(".logos")
+	// }
 	
 	tl.to(listter, {duration:.3,  opacity:0}, `+=${READ.t2}`)
 
 	tl.to(".frame2", {duration:.3, opacity:1}, "t2")
 
-	if(universalBanner.size==="160x600" || universalBanner.size==="300x600"){
+	if(universalBanner.size==="300x250" || universalBanner.size==="160x600" || universalBanner.size==="300x600"){
 		tl.to([".logos"], {duration:.2, opacity:0}, "-=.5")
 		tl.from(".t4", {duration:.3, opacity:0})
 
