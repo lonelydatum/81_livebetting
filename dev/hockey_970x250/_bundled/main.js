@@ -77,6 +77,12 @@ function start(barOptions) {
 		tl.from(".t4", { duration: .3, opacity: 0 });
 
 		tl.from('.t3', stag(vh));
+	} else if (universalBanner.size === "728x90" || universalBanner.size === "970x250") {
+		tl.set('.logos', { opacity: 0, duration: .1 }, "-=.5");
+		tl.from('.t3', stag(vh));
+		tl.to([".t3"], { duration: .3, opacity: 0 }, "+=" + READ.t3);
+		tl.from(".t4", { duration: .3, opacity: 0 });
+		console.log('sldkfjskldfj');
 	} else {
 		tl.from('.t3', stag(vh));
 		tl.to([".logos", ".t3"], { duration: .3, opacity: 0 }, "+=" + READ.t3);
